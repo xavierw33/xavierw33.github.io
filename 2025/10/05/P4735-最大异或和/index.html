@@ -27,7 +27,7 @@
 <meta property="og:description" content="题目大意 传送门(题面简洁明了)">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-10-05T03:33:30.000Z">
-<meta property="article:modified_time" content="2025-10-05T03:39:27.527Z">
+<meta property="article:modified_time" content="2025-10-05T05:07:15.250Z">
 <meta property="article:author" content="Xavier_Wang">
 <meta property="article:tag" content="C++">
 <meta property="article:tag" content="trie树">
@@ -280,7 +280,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-10-05 11:33:30 / 修改时间：11:39:27" itemprop="dateCreated datePublished" datetime="2025-10-05T11:33:30+08:00">2025-10-05</time>
+      <time title="创建时间：2025-10-05 11:33:30 / 修改时间：13:07:15" itemprop="dateCreated datePublished" datetime="2025-10-05T11:33:30+08:00">2025-10-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -310,7 +310,7 @@
     
     <div class="post-body" itemprop="articleBody"><h4 id="题目大意">题目大意</h4>
 <p><a
-href="%5BP4735%20最大异或和%20-%20洛谷%5D(https://www.luogu.com.cn/problem/P4735)">传送门</a>(题面简洁明了)</p>
+target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4735">传送门</a>(题面简洁明了)</p>
 <span id="more"></span>
 <p>两种做法，可持久化trie树，离线+trie树<del>前一种还没学，所以用了lowlow的第二种</del></p>
 <p>总体来说就是先离线排序出加入的顺序，根据询问建树，一边建树一边回答询问最终将答案按照原定顺序输出，在trie树上维护经过此点的最大区间下标即可，这样就可以判断是否在给出区间的左边界之后了。trie树建树就是常规的01trie前缀和建树转化区间求前缀的思路。</p>
