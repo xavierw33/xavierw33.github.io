@@ -19,29 +19,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"xavierw33.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="结构体中的重构 首先定义一个结构体 123struct Example&#123;    int x,y,z;&#125;; 那么第一是定义默认赋值顺序: 12345struct Example&#123;    int x,y,z;    Example()&#123;&#125;    Example(int _x,int _y,int _z) :x(_x),y(_y),z(_z)&amp;#">
+    <meta name="description" content="题目传送门 P6824 「EZEC-4」可乐 - 洛谷 题目描述还是很清晰明了的 思路过程 最近看到异或就下意识思考trie树了，看到数据范围发现O(nlogn)可行。 于是一个思路就出来了，暴力枚举每一个范围内的x，然后跑trie树看看对于这个x来说符合条件的“可乐”有几瓶，取max就好了">
 <meta property="og:type" content="article">
-<meta property="og:title" content="struct重载运算符小记">
-<meta property="og:url" content="http://xavierw33.github.io/2025/10/02/struct%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6%E5%B0%8F%E8%AE%B0/index.html">
+<meta property="og:title" content="P6824 「EZEC-4」可乐">
+<meta property="og:url" content="http://xavierw33.github.io/2025/10/06/P6824-%E3%80%8CEZEC-4%E3%80%8D%E5%8F%AF%E4%B9%90/index.html">
 <meta property="og:site_name" content="Xavier_Wang&#39;s Blog">
-<meta property="og:description" content="结构体中的重构 首先定义一个结构体 123struct Example&#123;    int x,y,z;&#125;; 那么第一是定义默认赋值顺序: 12345struct Example&#123;    int x,y,z;    Example()&#123;&#125;    Example(int _x,int _y,int _z) :x(_x),y(_y),z(_z)&amp;#">
+<meta property="og:description" content="题目传送门 P6824 「EZEC-4」可乐 - 洛谷 题目描述还是很清晰明了的 思路过程 最近看到异或就下意识思考trie树了，看到数据范围发现O(nlogn)可行。 于是一个思路就出来了，暴力枚举每一个范围内的x，然后跑trie树看看对于这个x来说符合条件的“可乐”有几瓶，取max就好了">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-10-02T03:30:12.000Z">
-<meta property="article:modified_time" content="2025-10-02T05:02:32.760Z">
+<meta property="article:published_time" content="2025-10-06T03:15:44.000Z">
+<meta property="article:modified_time" content="2025-10-06T03:22:42.270Z">
 <meta property="article:author" content="Xavier_Wang">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="结构体">
-<meta property="article:tag" content="零碎知识点">
+<meta property="article:tag" content="trie树">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://xavierw33.github.io/2025/10/02/struct%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6%E5%B0%8F%E8%AE%B0/">
+<link rel="canonical" href="http://xavierw33.github.io/2025/10/06/P6824-%E3%80%8CEZEC-4%E3%80%8D%E5%8F%AF%E4%B9%90/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://xavierw33.github.io/2025/10/02/struct%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6%E5%B0%8F%E8%AE%B0/","path":"2025/10/02/struct重载运算符小记/","title":"struct重载运算符小记"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://xavierw33.github.io/2025/10/06/P6824-%E3%80%8CEZEC-4%E3%80%8D%E5%8F%AF%E4%B9%90/","path":"2025/10/06/P6824-「EZEC-4」可乐/","title":"P6824 「EZEC-4」可乐"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>struct重载运算符小记 | Xavier_Wang's Blog</title>
+<title>P6824 「EZEC-4」可乐 | Xavier_Wang's Blog</title>
   
 
 
@@ -171,8 +170,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E4%B8%AD%E7%9A%84%E9%87%8D%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">结构体中的重构</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%82%A3%E4%B9%88%E5%B0%B1%E5%8F%AF%E4%BB%A5%E4%BF%9D%E8%AF%81%E4%B8%8D%E7%AE%A1%E5%A6%82%E4%BD%95%E8%B5%8B%E5%80%BC%E7%9A%84%E9%A1%BA%E5%BA%8F%E4%B8%80%E5%AE%9A%E6%98%AFxyz%E5%BD%93%E7%84%B6%E7%8E%B0%E5%9C%A8c%E7%9A%84%E9%BB%98%E8%AE%A4%E9%A1%BA%E5%BA%8F%E6%98%AF%E5%8F%98%E9%87%8F%E5%90%8D%E7%BB%99%E5%87%BA%E7%9A%84%E9%A1%BA%E5%BA%8F%E4%B8%80%E8%88%AC%E6%83%85%E5%86%B5%E4%B8%8B%E4%B8%8D%E4%BC%9A%E5%87%BA%E9%94%99%E7%9B%B8%E5%BD%93%E4%BA%8E%E4%B8%8A%E4%BA%86%E4%B8%80%E5%B1%82%E4%BF%9D%E9%99%A9-%E4%BD%86%E6%98%AF%E6%83%B3%E8%A6%81%E5%9C%A8%E7%BB%93%E6%9E%84%E4%BD%93%E5%86%85%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD%E8%BF%99%E6%98%AF%E5%BF%85%E9%A1%BB%E7%9A%84"><span class="nav-number">1.0.1.</span> <span class="nav-text">那么就可以保证不管如何赋值的顺序一定是x,y,z当然现在C++的默认顺序是变量名给出的顺序，一般情况下不会出错，相当于上了一层保险。
-但是想要在结构体内直接使用运算符重载这是必须的。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E5%A4%96%E7%9A%84%E9%87%8D%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">结构体外的重构</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E4%BC%A0%E9%80%81%E9%97%A8"><span class="nav-number">1.</span> <span class="nav-text">题目传送门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%E8%BF%87%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">思路过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E7%99%BE%E6%80%9D%E4%B8%8D%E5%BE%97%E5%85%B6%E8%A7%A3%E7%9A%84%E5%9C%B0%E6%96%B9"><span class="nav-number">3.</span> <span class="nav-text">一些百思不得其解的地方</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5%E5%90%8E%E4%B8%8D%E8%A6%81%E4%B9%B1%E4%BD%BF%E7%94%A8%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E4%B9%9F%E4%B8%8D%E8%A6%81%E4%B9%B1%E7%8E%A9%E5%89%8D%E5%90%8E%E7%BC%80"><span class="nav-number">4.</span> <span class="nav-text">以后不要乱使用全局变量，也不要乱玩前后缀++，–</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -252,7 +250,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xavierw33.github.io/2025/10/02/struct%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6%E5%B0%8F%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://xavierw33.github.io/2025/10/06/P6824-%E3%80%8CEZEC-4%E3%80%8D%E5%8F%AF%E4%B9%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -265,12 +263,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="struct重载运算符小记 | Xavier_Wang's Blog">
+      <meta itemprop="name" content="P6824 「EZEC-4」可乐 | Xavier_Wang's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          struct重载运算符小记
+          P6824 「EZEC-4」可乐
         </h1>
 
         <div class="post-meta-container">
@@ -282,7 +280,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-10-02 11:30:12 / 修改时间：13:02:32" itemprop="dateCreated datePublished" datetime="2025-10-02T11:30:12+08:00">2025-10-02</time>
+      <time title="创建时间：2025-10-06 11:15:44 / 修改时间：11:22:42" itemprop="dateCreated datePublished" datetime="2025-10-06T11:15:44+08:00">2025-10-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -310,31 +308,23 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h4 id="结构体中的重构">结构体中的重构</h4>
-<p>首先定义一个结构体</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Example</span>&#123;</span><br><span class="line">    <span class="type">int</span> x,y,z;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>那么第一是定义默认赋值顺序:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Example</span>&#123;</span><br><span class="line">    <span class="type">int</span> x,y,z;</span><br><span class="line">    <span class="built_in">Example</span>()&#123;&#125;</span><br><span class="line">    <span class="built_in">Example</span>(<span class="type">int</span> _x,<span class="type">int</span> _y,<span class="type">int</span> _z) :<span class="built_in">x</span>(_x),<span class="built_in">y</span>(_y),<span class="built_in">z</span>(_z)&#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h6
-id="那么就可以保证不管如何赋值的顺序一定是xyz当然现在c的默认顺序是变量名给出的顺序一般情况下不会出错相当于上了一层保险-但是想要在结构体内直接使用运算符重载这是必须的">那么就可以保证不管如何赋值的顺序一定是x,y,z当然现在C++的默认顺序是变量名给出的顺序，一般情况下不会出错，相当于上了一层保险。
-但是想要在结构体内直接使用运算符重载这是必须的。</h6>
-<p>接下来记录比较符号(&lt;,&gt;,=等)的运算符重载</p>
+    <div class="post-body" itemprop="articleBody"><h3 id="题目传送门">题目传送门</h3>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P6824">P6824 「EZEC-4」可乐
+- 洛谷</a></p>
+<p>题目描述还是很清晰明了的</p>
+<h3 id="思路过程">思路过程</h3>
+<p>最近看到异或就下意识思考trie树了，看到数据范围发现<span
+class="math inline"><em>O</em>(<em>n</em><em>l</em><em>o</em><em>g</em><em>n</em>)</span>可行。</p>
+<p>于是一个思路就出来了，暴力枚举每一个范围内的x，然后跑trie树看看对于这个x来说符合条件的“可乐”有几瓶，取max就好了</p>
 <span id="more"></span>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Example</span>&#123;</span><br><span class="line">    <span class="type">int</span> x,y,z;</span><br><span class="line">    <span class="built_in">Example</span>()&#123;&#125;</span><br><span class="line">    <span class="built_in">Example</span>(<span class="type">int</span> _x,<span class="type">int</span> _y,<span class="type">int</span> _z) :<span class="built_in">x</span>(_x),<span class="built_in">y</span>(_y),<span class="built_in">z</span>(_z)&#123;&#125;</span><br><span class="line">    <span class="keyword">inline</span> <span class="type">bool</span> <span class="keyword">operator</span> &lt; (<span class="type">const</span> Example now) <span class="type">const</span>&#123;<span class="keyword">return</span> x&lt;now.x;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>那么上面的小于号例子就是将x的大小作为正常的&lt;比较对象。如果要改变规则很简单比如想让大根堆变为小根堆只需要将符号的方向改变也就是将<变成>即可。</p>
-<p>那么接下来是对运算符的重载</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Example</span>&#123;</span><br><span class="line">    <span class="type">int</span> x,y,z;</span><br><span class="line">    <span class="built_in">Example</span>()&#123;&#125;</span><br><span class="line">    <span class="built_in">Example</span>(<span class="type">int</span> _x,<span class="type">int</span> _y,<span class="type">int</span> _z) :<span class="built_in">x</span>(_x),<span class="built_in">y</span>(_y),<span class="built_in">z</span>(_z)&#123;&#125;</span><br><span class="line">    <span class="keyword">inline</span> <span class="type">bool</span> <span class="keyword">operator</span> &lt; (<span class="type">const</span> Example now) <span class="type">const</span>&#123;<span class="keyword">return</span> x&lt;now.x;&#125;</span><br><span class="line">    <span class="keyword">inline</span> Example <span class="keyword">operator</span> + (Example&amp; r)&#123;</span><br><span class="line">        x=x+r.x;y=y+r.y;z=z+r.z;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Example</span>(x,y,z);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>与指针的方法相比，这种方式显然更好理解，所以将这种方式记录下来。其他的运算符同理</p>
-<p>最后是赋值运算符=的运算符重载</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Example</span>&#123;</span><br><span class="line">    <span class="type">int</span> x,y,z;</span><br><span class="line">    <span class="built_in">Example</span>()&#123;&#125;</span><br><span class="line">    <span class="built_in">Example</span>(<span class="type">int</span> _x,<span class="type">int</span> _y,<span class="type">int</span> _z) :<span class="built_in">x</span>(_x),<span class="built_in">y</span>(_y),<span class="built_in">z</span>(_z)&#123;&#125;</span><br><span class="line">    <span class="keyword">inline</span> <span class="type">bool</span> <span class="keyword">operator</span> &lt; (<span class="type">const</span> Example now) <span class="type">const</span>&#123;<span class="keyword">return</span> x&lt;now.x;&#125;</span><br><span class="line">    <span class="keyword">inline</span> Example <span class="keyword">operator</span> + (Example&amp; r)&#123;</span><br><span class="line">        x=x+r.x;y=y+r.y;z=z+r.z;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Example</span>(x,y,z);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">inline</span> Example <span class="keyword">operator</span> = (Example&amp; r)&#123;</span><br><span class="line">        x=r.x;y=r.y;z=r.z;</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>由于赋值运算符的特殊性，这样子的方法更加稳健。</p>
-<h4 id="结构体外的重构">结构体外的重构</h4>
-<p>这里沿用上面struct的设定</p>
-<p>那么重载就变成了这样:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Example</span>&#123;</span><br><span class="line">    <span class="type">int</span> x,y,z;</span><br><span class="line">    <span class="built_in">Example</span>()&#123;&#125;</span><br><span class="line">    <span class="built_in">Example</span>(<span class="type">int</span> _x,<span class="type">int</span> _y,<span class="type">int</span> _z) :<span class="built_in">x</span>(_x),<span class="built_in">y</span>(_y),<span class="built_in">z</span>(_z)&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">inline</span> Example <span class="keyword">operator</span> + (<span class="type">const</span> Example&amp; a,<span class="type">const</span> Example&amp; b)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Example</span>(a.x+b.x,a.y+b.y,a.z+b.z);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">inline</span> <span class="type">bool</span> <span class="keyword">operator</span> &lt;(<span class="type">const</span> Example&amp; a,<span class="type">const</span> Example&amp; b)&#123;</span><br><span class="line">    <span class="keyword">if</span> (a.x==b.x) </span><br><span class="line">        <span class="keyword">if</span> (a.y==b.y) <span class="keyword">return</span> a.z&lt;b.z;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> a.y&lt;b.y;</span><br><span class="line">    <span class="keyword">return</span> a.x&lt;b.x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>那么结构体外就可以将=和+，-视为一样的进行操作了。</p>
-<p>个人更加喜欢结构体外的重构，含义更加明了方便理解可以减少出错。</p>
-<p>那么基础性的运算符重载部分就这样结束啦！</p>
+<h3 id="一些百思不得其解的地方">一些百思不得其解的地方</h3>
+<p>不知道为什么trie树insert和query循环的地方，我使用自己的变量的时候总是会出错，比如我for
+(int i=mx……)此时mx是8，但是跳出来答案就是0，但是我for(int
+i=8……)答案就是正确的，真的不知道为什么，非常玄学。所以注意</p>
+<h3
+id="以后不要乱使用全局变量也不要乱玩前后缀">以后不要乱使用全局变量，也不要乱玩前后缀++，–</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1000005</span>;</span><br><span class="line"><span class="type">int</span> n,k,mx,ans,tot=<span class="number">1</span>,a[N],tr[N*<span class="number">20</span>][<span class="number">2</span>],siz[N*<span class="number">20</span>];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">insert</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">20</span>,rt=<span class="number">1</span>;~i;i--)&#123;</span><br><span class="line">        <span class="type">bool</span> now=(x&gt;&gt;i)&amp;<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (!tr[rt][now]) tr[rt][now]=++tot;</span><br><span class="line">        rt=tr[rt][now];siz[rt]++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">query</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> res=<span class="number">0</span>,rt=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">20</span>;~i;i--)&#123;</span><br><span class="line">        <span class="type">bool</span> now_k=(k&gt;&gt;i)&amp;<span class="number">1</span>,now=(x&gt;&gt;i)&amp;<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (now_k==<span class="number">1</span>)&#123;</span><br><span class="line">            res+=siz[tr[rt][now]];</span><br><span class="line">            rt=tr[rt][now^<span class="number">1</span>];</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (tr[rt][now]) rt=tr[rt][now];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res+siz[rt];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;k);</span><br><span class="line">    mx=(<span class="type">int</span>)<span class="built_in">log2</span>(k)<span class="number">+1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;a[i]);</span><br><span class="line">        <span class="built_in">insert</span>(a[i]);</span><br><span class="line">        mx=<span class="built_in">max</span>(mx,(<span class="type">int</span>)<span class="built_in">log2</span>(a[i])<span class="number">+1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> m=<span class="number">1</span>&lt;&lt;mx;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;=m;i++)&#123;</span><br><span class="line">        ans=<span class="built_in">max</span>(ans,<span class="built_in">query</span>(i));</span><br><span class="line">        <span class="keyword">if</span> (ans==n)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,n);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>完结<em>★,°</em>:.☆(￣▽￣)/$:<em>.°★</em> 。</p>
 <script src="https://giscus.app/client.js"
         data-repo="xavierw33/xavierw33.github.io"
         data-repo-id="R_kgDOP5DpJw"
@@ -378,22 +368,18 @@ id="那么就可以保证不管如何赋值的顺序一定是xyz当然现在c的
 
           <div class="post-tags">
               <a href="/tags/C/" rel="tag"># C++</a>
-              <a href="/tags/%E7%BB%93%E6%9E%84%E4%BD%93/" rel="tag"># 结构体</a>
-              <a href="/tags/%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag"># 零碎知识点</a>
+              <a href="/tags/trie%E6%A0%91/" rel="tag"># trie树</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2025/10/01/20251001%E5%B0%8F%E8%AE%B0/" rel="prev" title="20251001小记">
-                  <i class="fa fa-angle-left"></i> 20251001小记
+                <a href="/2025/10/05/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-BST-%E5%8F%8A%E7%BA%A2%E9%BB%91%E6%A0%91%E3%80%81splay%E5%B9%B3%E8%A1%A1%E6%A0%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="二叉搜索树(BST)及红黑树、splay平衡树学习笔记">
+                  <i class="fa fa-angle-left"></i> 二叉搜索树(BST)及红黑树、splay平衡树学习笔记
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2025/10/02/luoguP5283-%E5%8D%81%E4%BA%8C%E7%9C%81%E8%81%94%E8%80%83-2019-%E5%BC%82%E6%88%96%E7%B2%BD%E5%AD%90/" rel="next" title="luoguP5283 [十二省联考 2019] 异或粽子">
-                  luoguP5283 [十二省联考 2019] 异或粽子 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
