@@ -19,28 +19,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"xavierw33.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="题目大意 传送门(题面简洁明了)">
+    <meta name="description" content="题目传送门 P4155 [SCOI2015] 国旗计划 - 洛谷 题目大意 给出n条线段，环上一共m个点，求在第i条线段必须使用时最少要使用及条线段，数据保证线段不会被另外一条线段包涵。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="P4735 最大异或和">
-<meta property="og:url" content="http://xavierw33.github.io/2025/10/05/P4735-%E6%9C%80%E5%A4%A7%E5%BC%82%E6%88%96%E5%92%8C/index.html">
+<meta property="og:title" content="P4155 [SCOI2015] 国旗计划">
+<meta property="og:url" content="http://xavierw33.github.io/2025/10/07/P4155-SCOI2015-%E5%9B%BD%E6%97%97%E8%AE%A1%E5%88%92/index.html">
 <meta property="og:site_name" content="Xavier_Wang&#39;s Blog">
-<meta property="og:description" content="题目大意 传送门(题面简洁明了)">
+<meta property="og:description" content="题目传送门 P4155 [SCOI2015] 国旗计划 - 洛谷 题目大意 给出n条线段，环上一共m个点，求在第i条线段必须使用时最少要使用及条线段，数据保证线段不会被另外一条线段包涵。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-10-05T03:33:30.000Z">
-<meta property="article:modified_time" content="2025-10-05T05:07:15.250Z">
+<meta property="article:published_time" content="2025-10-07T03:36:08.000Z">
+<meta property="article:modified_time" content="2025-10-07T03:45:28.680Z">
 <meta property="article:author" content="Xavier_Wang">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="trie树">
+<meta property="article:tag" content="ST表">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="贪心">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://xavierw33.github.io/2025/10/05/P4735-%E6%9C%80%E5%A4%A7%E5%BC%82%E6%88%96%E5%92%8C/">
+<link rel="canonical" href="http://xavierw33.github.io/2025/10/07/P4155-SCOI2015-%E5%9B%BD%E6%97%97%E8%AE%A1%E5%88%92/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://xavierw33.github.io/2025/10/05/P4735-%E6%9C%80%E5%A4%A7%E5%BC%82%E6%88%96%E5%92%8C/","path":"2025/10/05/P4735-最大异或和/","title":"P4735 最大异或和"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://xavierw33.github.io/2025/10/07/P4155-SCOI2015-%E5%9B%BD%E6%97%97%E8%AE%A1%E5%88%92/","path":"2025/10/07/P4155-SCOI2015-国旗计划/","title":"P4155 [SCOI2015] 国旗计划"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>P4735 最大异或和 | Xavier_Wang's Blog</title>
+<title>P4155 [SCOI2015] 国旗计划 | Xavier_Wang's Blog</title>
   
 
 
@@ -170,7 +172,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E5%A4%A7%E6%84%8F"><span class="nav-number">1.</span> <span class="nav-text">题目大意</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%81%E4%BB%A5%E5%90%8E%E5%9C%A8%E5%87%BA%E7%8E%B0%E5%87%BD%E6%95%B0%E7%9A%84%E6%97%B6%E5%80%99%E4%B8%8D%E8%A6%81%E6%83%B3%E7%9D%80%E7%8E%A9%E7%B1%BB%E4%BC%BCcnt%E6%88%96%E8%80%85cnt%E7%9A%84%E6%8A%8A%E6%88%8F%E9%9D%9E%E5%B8%B8%E5%AE%B9%E6%98%93%E5%87%BA%E9%94%99%E5%A4%9A%E6%89%93%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E4%B8%8D%E4%BC%9A%E6%AD%BB"><span class="nav-number"></span> <span class="nav-text">非常重要！以后在出现函数的时候不要想着玩类似++cnt或者cnt++的把戏，非常容易出错！多打一行代码不会死。</span></a></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E4%BC%A0%E9%80%81%E9%97%A8"><span class="nav-number">1.</span> <span class="nav-text">题目传送门</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E5%A4%A7%E6%84%8F"><span class="nav-number">2.</span> <span class="nav-text">题目大意</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text">解题思路</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -250,7 +252,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xavierw33.github.io/2025/10/05/P4735-%E6%9C%80%E5%A4%A7%E5%BC%82%E6%88%96%E5%92%8C/">
+    <link itemprop="mainEntityOfPage" href="http://xavierw33.github.io/2025/10/07/P4155-SCOI2015-%E5%9B%BD%E6%97%97%E8%AE%A1%E5%88%92/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -263,12 +265,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="P4735 最大异或和 | Xavier_Wang's Blog">
+      <meta itemprop="name" content="P4155 [SCOI2015] 国旗计划 | Xavier_Wang's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          P4735 最大异或和
+          P4155 [SCOI2015] 国旗计划
         </h1>
 
         <div class="post-meta-container">
@@ -280,16 +282,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-10-05 11:33:30 / 修改时间：13:07:15" itemprop="dateCreated datePublished" datetime="2025-10-05T11:33:30+08:00">2025-10-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
-        </span>
+      <time title="创建时间：2025-10-07 11:36:08 / 修改时间：11:45:28" itemprop="dateCreated datePublished" datetime="2025-10-07T11:36:08+08:00">2025-10-07</time>
     </span>
 
   
@@ -308,16 +301,18 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h4 id="题目大意">题目大意</h4>
-<p><a
-target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4735">传送门</a>(题面简洁明了)</p>
+    <div class="post-body" itemprop="articleBody"><h1 id="题目传送门">题目传送门</h1>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4155">P4155 [SCOI2015]
+国旗计划 - 洛谷</a></p>
+<h1 id="题目大意">题目大意</h1>
+<p>给出n条线段，环上一共m个点，求在第i条线段必须使用时最少要使用及条线段，数据保证线段不会被另外一条线段包涵。</p>
 <span id="more"></span>
-<p>两种做法，可持久化trie树，离线+trie树<del>前一种还没学，所以用了lowlow的第二种</del></p>
-<p>总体来说就是先离线排序出加入的顺序，根据询问建树，一边建树一边回答询问最终将答案按照原定顺序输出，在trie树上维护经过此点的最大区间下标即可，这样就可以判断是否在给出区间的左边界之后了。trie树建树就是常规的01trie前缀和建树转化区间求前缀的思路。</p>
-<h1
-id="非常重要以后在出现函数的时候不要想着玩类似cnt或者cnt的把戏非常容易出错多打一行代码不会死">非常重要！以后在出现函数的时候不要想着玩类似++cnt或者cnt++的把戏，非常容易出错！多打一行代码不会死。</h1>
-<p>下面上代码</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;ctype.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> LEN=<span class="number">6000005</span>,N=<span class="number">600005</span>;</span><br><span class="line"><span class="type">int</span> n,m,tot=<span class="number">1</span>,cnt,a[N],ans[N],tr[LEN][<span class="number">2</span>],sec[LEN][<span class="number">2</span>];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">XOR</span>&#123;</span><br><span class="line">    <span class="type">int</span> l,r,x,now,id;</span><br><span class="line">    <span class="built_in">XOR</span>()&#123;&#125;</span><br><span class="line">    <span class="built_in">XOR</span>(<span class="type">int</span> L,<span class="type">int</span> R,<span class="type">int</span> X,<span class="type">int</span> NOW,<span class="type">int</span> ID): <span class="built_in">l</span>(L),<span class="built_in">r</span>(R),<span class="built_in">x</span>(X),<span class="built_in">now</span>(NOW),<span class="built_in">id</span>(ID)&#123;&#125;</span><br><span class="line">&#125;b[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">read</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> x=<span class="number">0</span>;<span class="type">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span> (!<span class="built_in">isdigit</span>(ch)) ch=<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">isdigit</span>(ch))&#123;</span><br><span class="line">        x=(x&lt;&lt;<span class="number">1</span>)+(x&lt;&lt;<span class="number">3</span>)+(ch&amp;<span class="number">15</span>);</span><br><span class="line">        ch=<span class="built_in">getchar</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">bool</span> <span class="title">cmp</span><span class="params">(XOR a,XOR b)</span></span>&#123;<span class="keyword">return</span> a.r&lt;b.r;&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">insert</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> loc)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">25</span>,rt=<span class="number">1</span>;~i;i--)&#123;</span><br><span class="line">        <span class="type">bool</span> now=(x&gt;&gt;i)&amp;<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (!tr[rt][now]) tr[rt][now]=++tot;</span><br><span class="line">        sec[rt][now]=loc;</span><br><span class="line">        rt=tr[rt][now];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">query</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> loc)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> res=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">25</span>,rt=<span class="number">1</span>;~i;i--)&#123;</span><br><span class="line">        <span class="type">bool</span> now=(x&gt;&gt;i)&amp;<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (tr[rt][now^<span class="number">1</span>] &amp;&amp; sec[rt][now^<span class="number">1</span>]&gt;=loc)&#123;</span><br><span class="line">            res|=<span class="number">1</span>&lt;&lt;i;</span><br><span class="line">            rt=tr[rt][now^<span class="number">1</span>];</span><br><span class="line">        &#125;<span class="keyword">else</span> rt=tr[rt][now];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    n=<span class="built_in">read</span>();m=<span class="built_in">read</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) a[i]=<span class="built_in">read</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">        <span class="type">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">        <span class="keyword">while</span> (ch!=<span class="string">&#x27;A&#x27;</span> &amp;&amp; ch!=<span class="string">&#x27;Q&#x27;</span>) ch=<span class="built_in">getchar</span>();</span><br><span class="line">        <span class="keyword">if</span> (ch==<span class="string">&#x27;A&#x27;</span>) a[++n]=<span class="built_in">read</span>();</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="type">int</span> l=<span class="built_in">read</span>(),r=<span class="built_in">read</span>(),x=<span class="built_in">read</span>();</span><br><span class="line">            cnt++;</span><br><span class="line">            b[cnt]=<span class="built_in">XOR</span>(l,r,x,n,cnt);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i=n;i;i--) a[i]^=a[i<span class="number">+1</span>];</span><br><span class="line">    <span class="built_in">sort</span>(b<span class="number">+1</span>,b+cnt<span class="number">+1</span>,cmp);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>,ptr=<span class="number">1</span>;i&lt;=cnt;i++)&#123;</span><br><span class="line">        <span class="keyword">while</span> (ptr&lt;=b[i].r)&#123;</span><br><span class="line">            <span class="built_in">insert</span>(a[ptr],ptr);</span><br><span class="line">            ptr++;</span><br><span class="line">        &#125;</span><br><span class="line">        ans[b[i].id]=<span class="built_in">query</span>(a[b[i].now<span class="number">+1</span>]^b[i].x,b[i].l);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>;i&lt;=cnt;i++) <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans[i]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="解题思路">解题思路</h1>
+<p>博主才知道原来这种使用倍增思想的可以解决重复问题的这种数组类的数据结构是ST表<del>Emmm</del></p>
+<p>那么就是先破环成链，然后对于左端点从左到右排序，根据每段线段求出最远的跳跃目标（这里使用贪心思想，因为不会被包涵，所以左端点越远右端点一定越远，使用越远的线段那么使用的条数一定越少）。那么求出了第一次的跳跃目标之后使用ST表将重复查询的时间复杂度由线性转化为<span
+class="math inline"><em>O</em>(<em>l</em><em>o</em><em>g</em><sub>2</sub><em>n</em>)</span>那么总体的时间复杂度就是排序和后续查找的<span
+class="math inline"><em>O</em>(<em>n</em><em>l</em><em>o</em><em>g</em><em>n</em>)</span>了</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">200005</span>;</span><br><span class="line"><span class="type">int</span> n,m,ans[N],nxt[N&lt;&lt;<span class="number">1</span>][<span class="number">20</span>];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">SOL</span>&#123;<span class="type">int</span> l,r,id;&#125;a[N&lt;&lt;<span class="number">1</span>];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">bool</span> <span class="title">cmp</span><span class="params">(SOL x,SOL y)</span></span>&#123;<span class="keyword">return</span> x.l&lt;y.l;&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;m);</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="type">int</span> x,y;<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;x,&amp;y);</span><br><span class="line">		a[i].l=x;</span><br><span class="line">		<span class="keyword">if</span> (x&lt;y) a[i].r=y;<span class="keyword">else</span> a[i].r=y+m;</span><br><span class="line">		a[i].id=i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">sort</span>(a<span class="number">+1</span>,a+n<span class="number">+1</span>,cmp);</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		a[i+n].l=a[i].l+m;</span><br><span class="line">		a[i+n].r=a[i].r+m;</span><br><span class="line">	&#125;</span><br><span class="line">	n&lt;&lt;=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>,j=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">while</span> (j&lt;=n &amp;&amp; a[j].l&lt;=a[i].r) j++;</span><br><span class="line">		nxt[i][<span class="number">0</span>]=j<span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>;i&lt;<span class="number">20</span>;i++)</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++) nxt[j][i]=nxt[nxt[j][i<span class="number">-1</span>]][i<span class="number">-1</span>];</span><br><span class="line">	n&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="type">int</span> now=i;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">19</span>;~j;j--)&#123;</span><br><span class="line">			<span class="keyword">if</span> (nxt[now][j] &amp;&amp; a[nxt[now][j]].r&lt;a[i].l+m)&#123;</span><br><span class="line">				now=nxt[now][j];</span><br><span class="line">				ans[a[i].id]+=(<span class="number">1</span>&lt;&lt;j);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,ans[i]<span class="number">+2</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <script src="https://giscus.app/client.js"
         data-repo="xavierw33/xavierw33.github.io"
         data-repo-id="R_kgDOP5DpJw"
@@ -361,21 +356,20 @@ id="非常重要以后在出现函数的时候不要想着玩类似cnt或者cnt�
 
           <div class="post-tags">
               <a href="/tags/C/" rel="tag"># C++</a>
-              <a href="/tags/trie%E6%A0%91/" rel="tag"># trie树</a>
+              <a href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag"># 贪心</a>
+              <a href="/tags/ST%E8%A1%A8/" rel="tag"># ST表</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"># 数据结构</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2025/10/03/P3435-POI-2006-OKR-Periods-of-Words/" rel="prev" title="P3435 [POI 2006] OKR-Periods of Words">
-                  <i class="fa fa-angle-left"></i> P3435 [POI 2006] OKR-Periods of Words
+                <a href="/2025/10/06/P3509-POI-2010-ZAB-Frog/" rel="prev" title="P3509 [POI 2010] ZAB-Frog">
+                  <i class="fa fa-angle-left"></i> P3509 [POI 2010] ZAB-Frog
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2025/10/05/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-BST-%E5%8F%8A%E7%BA%A2%E9%BB%91%E6%A0%91%E3%80%81splay%E5%B9%B3%E8%A1%A1%E6%A0%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next" title="二叉搜索树(BST)及红黑树、splay平衡树学习笔记">
-                  二叉搜索树(BST)及红黑树、splay平衡树学习笔记 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
