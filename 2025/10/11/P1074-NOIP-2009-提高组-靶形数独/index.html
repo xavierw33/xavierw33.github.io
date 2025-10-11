@@ -19,29 +19,33 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"xavierw33.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="构造 123456set&lt;int&gt; s1;vector&lt;int&gt; v&#x3D;&#123;...&#125;;set&lt;int&gt; s(v.begin(),v.end());set&lt;int&gt; s2(s1);&#x2F;&#x2F;将s1复制到s2中">
+    <meta name="description" content="题目链接 P1074 [NOIP 2009 提高组] 靶形数独 - 洛谷">
 <meta property="og:type" content="article">
-<meta property="og:title" content="STL之set学习笔记">
-<meta property="og:url" content="http://xavierw33.github.io/2025/10/08/STL%E4%B9%8Bset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="P1074 [NOIP 2009 提高组] 靶形数独">
+<meta property="og:url" content="http://xavierw33.github.io/2025/10/11/P1074-NOIP-2009-%E6%8F%90%E9%AB%98%E7%BB%84-%E9%9D%B6%E5%BD%A2%E6%95%B0%E7%8B%AC/index.html">
 <meta property="og:site_name" content="Xavier_Wang&#39;s Blog">
-<meta property="og:description" content="构造 123456set&lt;int&gt; s1;vector&lt;int&gt; v&#x3D;&#123;...&#125;;set&lt;int&gt; s(v.begin(),v.end());set&lt;int&gt; s2(s1);&#x2F;&#x2F;将s1复制到s2中">
+<meta property="og:description" content="题目链接 P1074 [NOIP 2009 提高组] 靶形数独 - 洛谷">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-10-08T05:46:02.000Z">
-<meta property="article:modified_time" content="2025-10-08T07:09:01.178Z">
+<meta property="og:image" content="file:///C:/Users/Xavie/AppData/Roaming/marktext/images/2025-10-11-10-30-34-image.png">
+<meta property="og:image" content="file:///C:/Users/Xavie/AppData/Roaming/marktext/images/2025-10-11-10-30-45-image.png">
+<meta property="article:published_time" content="2025-10-11T02:20:07.000Z">
+<meta property="article:modified_time" content="2025-10-11T02:31:32.440Z">
 <meta property="article:author" content="Xavier_Wang">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="STL">
-<meta property="article:tag" content="set">
+<meta property="article:tag" content="DFS">
+<meta property="article:tag" content="剪枝">
+<meta property="article:tag" content="奇技淫巧">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="file:///C:/Users/Xavie/AppData/Roaming/marktext/images/2025-10-11-10-30-34-image.png">
 
 
-<link rel="canonical" href="http://xavierw33.github.io/2025/10/08/STL%E4%B9%8Bset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+<link rel="canonical" href="http://xavierw33.github.io/2025/10/11/P1074-NOIP-2009-%E6%8F%90%E9%AB%98%E7%BB%84-%E9%9D%B6%E5%BD%A2%E6%95%B0%E7%8B%AC/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://xavierw33.github.io/2025/10/08/STL%E4%B9%8Bset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/","path":"2025/10/08/STL之set学习笔记/","title":"STL之set学习笔记"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://xavierw33.github.io/2025/10/11/P1074-NOIP-2009-%E6%8F%90%E9%AB%98%E7%BB%84-%E9%9D%B6%E5%BD%A2%E6%95%B0%E7%8B%AC/","path":"2025/10/11/P1074-NOIP-2009-提高组-靶形数独/","title":"P1074 [NOIP 2009 提高组] 靶形数独"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>STL之set学习笔记 | Xavier_Wang's Blog</title>
+<title>P1074 [NOIP 2009 提高组] 靶形数独 | Xavier_Wang's Blog</title>
   
 
 
@@ -171,7 +175,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%84%E9%80%A0"><span class="nav-number">1.</span> <span class="nav-text">构造</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">一些使用方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%B9%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">特性</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E9%93%BE%E6%8E%A5"><span class="nav-number">1.</span> <span class="nav-text">题目链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%81%9A%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">做题思路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%B4%E7%B4%A0dfs"><span class="nav-number">2.1.</span> <span class="nav-text">朴素DFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E4%BC%98%E5%8C%96%E4%B9%9F%E6%98%AF%E6%89%93%E6%B7%B1%E6%90%9C%E7%9A%84%E4%B8%80%E4%BA%9B%E5%A5%BD%E4%B9%A0%E6%83%AF"><span class="nav-number">2.2.</span> <span class="nav-text">一些优化（也是打深搜的一些好习惯）</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -251,7 +255,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xavierw33.github.io/2025/10/08/STL%E4%B9%8Bset%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://xavierw33.github.io/2025/10/11/P1074-NOIP-2009-%E6%8F%90%E9%AB%98%E7%BB%84-%E9%9D%B6%E5%BD%A2%E6%95%B0%E7%8B%AC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -264,12 +268,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="STL之set学习笔记 | Xavier_Wang's Blog">
+      <meta itemprop="name" content="P1074 [NOIP 2009 提高组] 靶形数独 | Xavier_Wang's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          STL之set学习笔记
+          P1074 [NOIP 2009 提高组] 靶形数独
         </h1>
 
         <div class="post-meta-container">
@@ -281,7 +285,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-10-08 13:46:02 / 修改时间：15:09:01" itemprop="dateCreated datePublished" datetime="2025-10-08T13:46:02+08:00">2025-10-08</time>
+      <time title="创建时间：2025-10-11 10:20:07 / 修改时间：10:31:32" itemprop="dateCreated datePublished" datetime="2025-10-11T10:20:07+08:00">2025-10-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -309,16 +313,25 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="构造">构造</h1>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">set&lt;<span class="type">int</span>&gt; s1;</span><br><span class="line"></span><br><span class="line">vector&lt;<span class="type">int</span>&gt; v=&#123;...&#125;;</span><br><span class="line"><span class="function">set&lt;<span class="type">int</span>&gt; <span class="title">s</span><span class="params">(v.begin(),v.end())</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function">set&lt;<span class="type">int</span>&gt; <span class="title">s2</span><span class="params">(s1)</span></span>;<span class="comment">//将s1复制到s2中</span></span><br></pre></td></tr></table></figure>
+    <div class="post-body" itemprop="articleBody"><h1 id="题目链接">题目链接</h1>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1074">P1074 [NOIP 2009
+提高组] 靶形数独 - 洛谷</a></p>
 <span id="more"></span>
-<h1 id="一些使用方式">一些使用方式</h1>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//插入元素</span></span><br><span class="line">s.<span class="built_in">insert</span>(x);<span class="comment">//将权值为x的加入s中作为一个元素(也可以是结构体)</span></span><br><span class="line"><span class="comment">//遍历</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> x:s) <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,x);</span><br><span class="line"><span class="comment">//指针类型</span></span><br><span class="line">set&lt;<span class="type">int</span>&gt;::iterator ptr;<span class="comment">//也可以是auto（自动） </span></span><br><span class="line"><span class="comment">//查找（如果没有找到返回s.end()） </span></span><br><span class="line">set&lt;<span class="type">int</span>&gt;::iterator ptr=s.<span class="built_in">find</span>(x);</span><br><span class="line"><span class="comment">//删除（直接删除权值为x的元素） </span></span><br><span class="line">s.<span class="built_in">erase</span>(x); </span><br><span class="line"><span class="comment">//删除(删除指针指向的元素，下面的例子中最终还是删除的x)</span></span><br><span class="line"><span class="keyword">auto</span> ptr=s.<span class="built_in">find</span>(x);</span><br><span class="line">s.<span class="built_in">erase</span>(ptr); </span><br><span class="line"><span class="comment">//可以删除区间</span></span><br><span class="line">s.<span class="built_in">erase</span>(ptr,s.<span class="built_in">end</span>());</span><br><span class="line"><span class="comment">//交换</span></span><br><span class="line">s<span class="number">1.</span><span class="built_in">swap</span>(s2);</span><br><span class="line"><span class="comment">//empty</span></span><br><span class="line">s<span class="number">1.</span><span class="built_in">empty</span>();</span><br><span class="line"><span class="comment">//元素个数</span></span><br><span class="line">s.<span class="built_in">size</span>();</span><br><span class="line"><span class="comment">//权值为x的元素个数</span></span><br><span class="line">s.<span class="built_in">count</span>(x);</span><br><span class="line"><span class="comment">//返回大于等于x权值的迭代器，大于的迭代器 </span></span><br><span class="line">s.<span class="built_in">lower_bound</span>(x); s.<span class="built_in">upper_bound</span>(x);</span><br></pre></td></tr></table></figure>
-<h1 id="特性">特性</h1>
-<p>只有键值，也就是实值，所以传递参数只需要传递实值（迭代器除外）</p>
-<p>自带去重不允许重复（但是可以查询该元素个数）</p>
-<p>使用迭代器遍历时默认为升序</p>
-<p>不允许直接修改键值的行为</p>
+<h1 id="做题思路">做题思路</h1>
+<h2 id="朴素dfs">朴素DFS</h2>
+<p>对于每一次分数和分块分开判断，把每一个没有填的格子记录下来然后根据没有填的格子进行朴素的搜索。然后能过<span
+class="math inline">40</span>%都不错了Emmm.</p>
+<h2
+id="一些优化也是打深搜的一些好习惯">一些优化（也是打深搜的一些好习惯）</h2>
+<ol type="1">
+<li><p>对于类似需要判断的，若是范围小直接打表获取更快的速度（详见代码）</p></li>
+<li><p>条件允许的情况下，在做选择的时候直接判断，不要等做完了再判断正确性。</p></li>
+<li><p>这道题而言可以先搜索未填个数少的行（或者列或者块都行），因为这可以从前端开始限制搜索树，方案的总数是一样的，但是会发现，先搜索未填个数少的判断会少很多，因为很多错误的方案会在搜索树比较前面的部分被剪掉。</p></li>
+</ol>
+<p>可以看一下优化3加了和没加的对比，差距还是很大的</p>
+<p><img src="file:///C:/Users/Xavie/AppData/Roaming/marktext/images/2025-10-11-10-30-34-image.png" title="" alt="" width="319"><img src="file:///C:/Users/Xavie/AppData/Roaming/marktext/images/2025-10-11-10-30-45-image.png" title="" alt="" width="304"></p>
+<p>然后放上加了所有优化之后的代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;cstdio&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">const short score[9][9]=&#123;</span><br><span class="line">    &#123;6,6,6,6,6,6,6,6,6&#125;,</span><br><span class="line">    &#123;6,7,7,7,7,7,7,7,6&#125;,</span><br><span class="line">    &#123;6,7,8,8,8,8,8,7,6&#125;,</span><br><span class="line">    &#123;6,7,8,9,9,9,8,7,6&#125;,</span><br><span class="line">    &#123;6,7,8,9,10,9,8,7,6&#125;,</span><br><span class="line">    &#123;6,7,8,9,9,9,8,7,6&#125;,</span><br><span class="line">    &#123;6,7,8,8,8,8,8,7,6&#125;,</span><br><span class="line">    &#123;6,7,7,7,7,7,7,7,6&#125;,</span><br><span class="line">    &#123;6,6,6,6,6,6,6,6,6&#125;</span><br><span class="line">&#125;;</span><br><span class="line">const short block[9][9]=&#123;</span><br><span class="line">    &#123;0,0,0,1,1,1,2,2,2&#125;,</span><br><span class="line">    &#123;0,0,0,1,1,1,2,2,2&#125;,</span><br><span class="line">    &#123;0,0,0,1,1,1,2,2,2&#125;,</span><br><span class="line">    &#123;3,3,3,4,4,4,5,5,5&#125;,</span><br><span class="line">    &#123;3,3,3,4,4,4,5,5,5&#125;,</span><br><span class="line">    &#123;3,3,3,4,4,4,5,5,5&#125;,</span><br><span class="line">    &#123;6,6,6,7,7,7,8,8,8&#125;,</span><br><span class="line">    &#123;6,6,6,7,7,7,8,8,8&#125;,</span><br><span class="line">    &#123;6,6,6,7,7,7,8,8,8&#125;</span><br><span class="line">&#125;;</span><br><span class="line">int ans=-1,tot=0,a[9][9],row[9][10],rec[9][10],col[9][10];</span><br><span class="line">struct BLANK&#123;</span><br><span class="line">    int x,y,z;</span><br><span class="line">&#125;b[100];</span><br><span class="line">inline void dfs(int now,int S)&#123;</span><br><span class="line">    if (now==tot)&#123;</span><br><span class="line">        ans=max(ans,S);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    for (int i=1;i&lt;=9;i++)&#123;</span><br><span class="line">        int x=b[now].x,y=b[now].y,z=b[now].z;</span><br><span class="line">        if (row[x][i] || col[y][i] || rec[z][i]) continue;</span><br><span class="line">        row[x][i]=col[y][i]=rec[z][i]=1;</span><br><span class="line">        dfs(now+1,S+score[x][y]*i);</span><br><span class="line">        row[x][i]=col[y][i]=rec[z][i]=0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int now=0;</span><br><span class="line">    for (int i=0;i&lt;9;i++)</span><br><span class="line">        for (int j=0;j&lt;9;j++)&#123;</span><br><span class="line">            scanf(&quot;%d&quot;,&amp;a[i][j]);</span><br><span class="line">            if (a[i][j]!=0)&#123;</span><br><span class="line">                now+=score[i][j]*a[i][j];</span><br><span class="line">                row[i][a[i][j]]=1;</span><br><span class="line">                col[j][a[i][j]]=1;</span><br><span class="line">                rec[block[i][j]][a[i][j]]=1;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                b[tot].x=i;</span><br><span class="line">                b[tot].y=j;</span><br><span class="line">                b[tot++].z=block[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    dfs(0,now);</span><br><span class="line">    printf(&quot;%d\n&quot;,ans);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <script src="https://giscus.app/client.js"
         data-repo="xavierw33/xavierw33.github.io"
         data-repo-id="R_kgDOP5DpJw"
@@ -362,21 +375,22 @@
 
           <div class="post-tags">
               <a href="/tags/C/" rel="tag"># C++</a>
-              <a href="/tags/STL/" rel="tag"># STL</a>
-              <a href="/tags/set/" rel="tag"># set</a>
+              <a href="/tags/DFS/" rel="tag"># DFS</a>
+              <a href="/tags/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/" rel="tag"># 奇技淫巧</a>
+              <a href="/tags/%E5%89%AA%E6%9E%9D/" rel="tag"># 剪枝</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2025/10/07/P6648-CCC-2019-Triangle-The-Data-Structure/" rel="prev" title="P6648 [CCC 2019] Triangle: The Data Structure">
-                  <i class="fa fa-angle-left"></i> P6648 [CCC 2019] Triangle: The Data Structure
+                <a href="/2025/10/10/P2324-SCOI2005-%E9%AA%91%E5%A3%AB%E7%B2%BE%E7%A5%9E/" rel="prev" title="P2324 [SCOI2005] 骑士精神与IDA*">
+                  <i class="fa fa-angle-left"></i> P2324 [SCOI2005] 骑士精神与IDA*
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2025/10/08/P7562-JOISC-2021-%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E5%B7%A1%E3%82%8A-2/" rel="next" title="P7562 [JOISC 2021] イベント巡り 2">
-                  P7562 [JOISC 2021] イベント巡り 2 <i class="fa fa-angle-right"></i>
+                <a href="/2025/10/11/P1312-NOIP-2011-%E6%8F%90%E9%AB%98%E7%BB%84-Mayan-%E6%B8%B8%E6%88%8F/" rel="next" title="P1312 [NOIP 2011 提高组] Mayan 游戏">
+                  P1312 [NOIP 2011 提高组] Mayan 游戏 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
