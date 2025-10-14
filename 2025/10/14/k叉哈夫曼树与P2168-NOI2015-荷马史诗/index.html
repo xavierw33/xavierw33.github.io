@@ -19,30 +19,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"xavierw33.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="题目传送门 P4155 [SCOI2015] 国旗计划 - 洛谷 题目大意 给出n条线段，环上一共m个点，求在第i条线段必须使用时最少要使用及条线段，数据保证线段不会被另外一条线段包涵。">
+    <meta name="description" content="题目简介 P2168 [NOI2015] 荷马史诗 - 洛谷 精简版：给出一系列信息和信息出现的次数，求所有信息在k进制下的哈夫曼编码，最终的答案就是构建出哈夫曼树的带权路径长度和最深子节点的深度。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="P4155 [SCOI2015] 国旗计划">
-<meta property="og:url" content="http://xavierw33.github.io/2025/10/07/P4155-SCOI2015-%E5%9B%BD%E6%97%97%E8%AE%A1%E5%88%92/index.html">
+<meta property="og:title" content="k叉哈夫曼树与P2168 [NOI2015] 荷马史诗">
+<meta property="og:url" content="http://xavierw33.github.io/2025/10/14/k%E5%8F%89%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E4%B8%8EP2168-NOI2015-%E8%8D%B7%E9%A9%AC%E5%8F%B2%E8%AF%97/index.html">
 <meta property="og:site_name" content="Xavier_Wang&#39;s Blog">
-<meta property="og:description" content="题目传送门 P4155 [SCOI2015] 国旗计划 - 洛谷 题目大意 给出n条线段，环上一共m个点，求在第i条线段必须使用时最少要使用及条线段，数据保证线段不会被另外一条线段包涵。">
+<meta property="og:description" content="题目简介 P2168 [NOI2015] 荷马史诗 - 洛谷 精简版：给出一系列信息和信息出现的次数，求所有信息在k进制下的哈夫曼编码，最终的答案就是构建出哈夫曼树的带权路径长度和最深子节点的深度。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-10-07T03:36:08.000Z">
-<meta property="article:modified_time" content="2025-10-07T03:45:28.680Z">
+<meta property="article:published_time" content="2025-10-14T03:50:01.000Z">
+<meta property="article:modified_time" content="2025-10-14T05:33:18.987Z">
 <meta property="article:author" content="Xavier_Wang">
 <meta property="article:tag" content="C++">
-<meta property="article:tag" content="ST表">
+<meta property="article:tag" content="哈夫曼树">
+<meta property="article:tag" content="堆">
 <meta property="article:tag" content="数据结构">
-<meta property="article:tag" content="贪心">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://xavierw33.github.io/2025/10/07/P4155-SCOI2015-%E5%9B%BD%E6%97%97%E8%AE%A1%E5%88%92/">
+<link rel="canonical" href="http://xavierw33.github.io/2025/10/14/k%E5%8F%89%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E4%B8%8EP2168-NOI2015-%E8%8D%B7%E9%A9%AC%E5%8F%B2%E8%AF%97/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://xavierw33.github.io/2025/10/07/P4155-SCOI2015-%E5%9B%BD%E6%97%97%E8%AE%A1%E5%88%92/","path":"2025/10/07/P4155-SCOI2015-国旗计划/","title":"P4155 [SCOI2015] 国旗计划"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://xavierw33.github.io/2025/10/14/k%E5%8F%89%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E4%B8%8EP2168-NOI2015-%E8%8D%B7%E9%A9%AC%E5%8F%B2%E8%AF%97/","path":"2025/10/14/k叉哈夫曼树与P2168-NOI2015-荷马史诗/","title":"k叉哈夫曼树与P2168 [NOI2015] 荷马史诗"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>P4155 [SCOI2015] 国旗计划 | Xavier_Wang's Blog</title>
+<title>k叉哈夫曼树与P2168 [NOI2015] 荷马史诗 | Xavier_Wang's Blog</title>
   
 
 
@@ -172,7 +172,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E4%BC%A0%E9%80%81%E9%97%A8"><span class="nav-number">1.</span> <span class="nav-text">题目传送门</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E5%A4%A7%E6%84%8F"><span class="nav-number">2.</span> <span class="nav-text">题目大意</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text">解题思路</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">题目简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91"><span class="nav-number">2.</span> <span class="nav-text">哈夫曼树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E8%BF%87%E7%A8%8B"><span class="nav-number">2.2.</span> <span class="nav-text">构造过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E9%A2%98%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E5%88%A9%E7%94%A8stl%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0%E5%B0%8F%E6%A0%B9%E5%A0%86"><span class="nav-number">2.3.</span> <span class="nav-text">本题代码实现(利用STL优先队列实现小根堆)</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -252,7 +252,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://xavierw33.github.io/2025/10/07/P4155-SCOI2015-%E5%9B%BD%E6%97%97%E8%AE%A1%E5%88%92/">
+    <link itemprop="mainEntityOfPage" href="http://xavierw33.github.io/2025/10/14/k%E5%8F%89%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E4%B8%8EP2168-NOI2015-%E8%8D%B7%E9%A9%AC%E5%8F%B2%E8%AF%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -265,12 +265,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="P4155 [SCOI2015] 国旗计划 | Xavier_Wang's Blog">
+      <meta itemprop="name" content="k叉哈夫曼树与P2168 [NOI2015] 荷马史诗 | Xavier_Wang's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          P4155 [SCOI2015] 国旗计划
+          k叉哈夫曼树与P2168 [NOI2015] 荷马史诗
         </h1>
 
         <div class="post-meta-container">
@@ -282,7 +282,16 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-10-07 11:36:08 / 修改时间：11:45:28" itemprop="dateCreated datePublished" datetime="2025-10-07T11:36:08+08:00">2025-10-07</time>
+      <time title="创建时间：2025-10-14 11:50:01 / 修改时间：13:33:18" itemprop="dateCreated datePublished" datetime="2025-10-14T11:50:01+08:00">2025-10-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+        </span>
     </span>
 
   
@@ -301,18 +310,35 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="题目传送门">题目传送门</h1>
-<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4155">P4155 [SCOI2015]
-国旗计划 - 洛谷</a></p>
-<h1 id="题目大意">题目大意</h1>
-<p>给出n条线段，环上一共m个点，求在第i条线段必须使用时最少要使用及条线段，数据保证线段不会被另外一条线段包涵。</p>
+    <div class="post-body" itemprop="articleBody"><h1 id="题目简介">题目简介</h1>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2168">P2168 [NOI2015]
+荷马史诗 - 洛谷</a></p>
+<p>精简版：给出一系列信息和信息出现的次数，求所有信息在k进制下的哈夫曼编码，最终的答案就是构建出哈夫曼树的带权路径长度和最深子节点的深度。</p>
 <span id="more"></span>
-<h1 id="解题思路">解题思路</h1>
-<p>博主才知道原来这种使用倍增思想的可以解决重复问题的这种数组类的数据结构是ST表<del>Emmm</del></p>
-<p>那么就是先破环成链，然后对于左端点从左到右排序，根据每段线段求出最远的跳跃目标（这里使用贪心思想，因为不会被包涵，所以左端点越远右端点一定越远，使用越远的线段那么使用的条数一定越少）。那么求出了第一次的跳跃目标之后使用ST表将重复查询的时间复杂度由线性转化为<span
-class="math inline"><em>O</em>(<em>l</em><em>o</em><em>g</em><sub>2</sub><em>n</em>)</span>那么总体的时间复杂度就是排序和后续查找的<span
-class="math inline"><em>O</em>(<em>n</em><em>l</em><em>o</em><em>g</em><em>n</em>)</span>了</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">200005</span>;</span><br><span class="line"><span class="type">int</span> n,m,ans[N],nxt[N&lt;&lt;<span class="number">1</span>][<span class="number">20</span>];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">SOL</span>&#123;<span class="type">int</span> l,r,id;&#125;a[N&lt;&lt;<span class="number">1</span>];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">bool</span> <span class="title">cmp</span><span class="params">(SOL x,SOL y)</span></span>&#123;<span class="keyword">return</span> x.l&lt;y.l;&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;m);</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="type">int</span> x,y;<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;x,&amp;y);</span><br><span class="line">		a[i].l=x;</span><br><span class="line">		<span class="keyword">if</span> (x&lt;y) a[i].r=y;<span class="keyword">else</span> a[i].r=y+m;</span><br><span class="line">		a[i].id=i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">sort</span>(a<span class="number">+1</span>,a+n<span class="number">+1</span>,cmp);</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		a[i+n].l=a[i].l+m;</span><br><span class="line">		a[i+n].r=a[i].r+m;</span><br><span class="line">	&#125;</span><br><span class="line">	n&lt;&lt;=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>,j=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">while</span> (j&lt;=n &amp;&amp; a[j].l&lt;=a[i].r) j++;</span><br><span class="line">		nxt[i][<span class="number">0</span>]=j<span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>;i&lt;<span class="number">20</span>;i++)</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++) nxt[j][i]=nxt[nxt[j][i<span class="number">-1</span>]][i<span class="number">-1</span>];</span><br><span class="line">	n&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="type">int</span> now=i;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">19</span>;~j;j--)&#123;</span><br><span class="line">			<span class="keyword">if</span> (nxt[now][j] &amp;&amp; a[nxt[now][j]].r&lt;a[i].l+m)&#123;</span><br><span class="line">				now=nxt[now][j];</span><br><span class="line">				ans[a[i].id]+=(<span class="number">1</span>&lt;&lt;j);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,ans[i]<span class="number">+2</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="哈夫曼树">哈夫曼树</h1>
+<h2 id="定义">定义</h2>
+<ul>
+<li><p>路径与路径长度：路径就是从书中一个节点到另一个节点的最短路径，长度就是经过点数的个数-1，也就是经过的树的边数。</p></li>
+<li><p>节点的权：图中某一节点的权值，根据题目而定，本题中就是出现的次数</p></li>
+<li><p>带权路径长度：从根节点到某节点的路径长度与该节点权的乘积，哈夫曼树中常”某节点”表现为叶子节点。简称为PL。</p></li>
+<li><p>树的带权路径长度:就是以该节点为根所构成的树的所有叶子结点的带权路径长度之和。简写为WPL。</p></li>
+<li><p>哈夫曼树往往是所有建树方式中整棵树的带权路径长度最小的。</p></li>
+<li><p>若给边以权值0~k-1，那么走过路径的编码就是哈夫曼编码，也就是题中所描述的“k进制串”</p></li>
+</ul>
+<h2 id="构造过程">构造过程</h2>
+<p>基于贪心和堆实现。</p>
+<ol type="1">
+<li><p>所有节点单独成树，形成规模为n的森林</p></li>
+<li><p>每次选取k个WPL最小的树进行合并，成为虚根的左右子树，新根的WPL就是左右子树的WPL之和，注意该题以及大部分背景下如果有比较细致的要求WPL大的为左子树，小的为右子树。这样权值高，也就是更重要的节点的哈夫曼编码就会靠前，优先被检索到。</p></li>
+<li><p>不断重复2步骤直到只剩下一棵树。</p></li>
+</ol>
+<p>但是不难发现，k叉哈夫曼树的情况下，最后一轮2操作时很容易出现只剩下2-k-1棵树的情况，若是这个时候强行合并为x叉<span
+class="math inline">(<em>显</em><em>然</em><em>x</em> &lt; <em>k</em>)</span>，那么在离根节点最近的地方反而浪费了检索空间，势必一定会造成WPL的增大，因为必然有根节点下接k叉的树优于当前构造的树，解决办法也很简单，就是利用空节点将其他节点挤到更优的地方去。</p>
+<p>那么要补充几个空节点呢？回顾以上贪心过程，其实是每次消去k棵树，生成1棵树到堆里，那么相当于每次减少k-1棵树，最后只留下一棵树，也就是总共消去n-1棵树，我们只需要补充空节点直到总数-1能被k-1整除即可。</p>
+<h2
+id="本题代码实现利用stl优先队列实现小根堆">本题代码实现(利用STL优先队列实现小根堆)</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> n,k;</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> ans;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Huffman</span>&#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> val;</span><br><span class="line">    <span class="type">int</span> depth;</span><br><span class="line">    <span class="built_in">Huffman</span>()&#123;&#125;</span><br><span class="line">    <span class="built_in">Huffman</span>(<span class="type">long</span> <span class="type">long</span> VAL,<span class="type">int</span> DEPTH): <span class="built_in">val</span>(VAL),<span class="built_in">depth</span>(DEPTH)&#123;&#125;</span><br><span class="line">    <span class="keyword">inline</span> <span class="type">bool</span> <span class="keyword">operator</span> &lt; (<span class="type">const</span> Huffman&amp; x) <span class="type">const</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (val==x.val) <span class="keyword">return</span> depth&gt;x.depth;</span><br><span class="line">        <span class="keyword">return</span> val&gt;x.val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">priority_queue&lt;Huffman&gt; q;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;k);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> x;<span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>,&amp;x);</span><br><span class="line">        q.<span class="built_in">push</span>(<span class="built_in">Huffman</span>(x,<span class="number">0</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> ((n<span class="number">-1</span>)%(k<span class="number">-1</span>)!=<span class="number">0</span>)&#123;</span><br><span class="line">        n++;</span><br><span class="line">        q.<span class="built_in">push</span>(<span class="built_in">Huffman</span>(<span class="number">0</span>,<span class="number">0</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (n&gt;<span class="number">1</span>)&#123;</span><br><span class="line">        Huffman NEW=<span class="built_in">Huffman</span>(<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>;i&lt;=k;i++)&#123;</span><br><span class="line">            Huffman now=q.<span class="built_in">top</span>();</span><br><span class="line">            NEW.val+=now.val;</span><br><span class="line">            NEW.depth=<span class="built_in">max</span>(NEW.depth,now.depth);</span><br><span class="line">            q.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        ans+=NEW.val;</span><br><span class="line">        n-=(k<span class="number">-1</span>);</span><br><span class="line">        NEW.depth++;</span><br><span class="line">        q.<span class="built_in">push</span>(NEW);</span><br><span class="line">    &#125;</span><br><span class="line">    Huffman rt=q.<span class="built_in">top</span>();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n%d\n&quot;</span>,ans,rt.depth);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>显然这个代码没有维护具体的哈夫曼树形态，只是满足了该题目的需求维护了根节点和树的价值。具体的形态只要在下面进行贪心的循环中加入对于树的维护即可。</p>
 <script src="https://giscus.app/client.js"
         data-repo="xavierw33/xavierw33.github.io"
         data-repo-id="R_kgDOP5DpJw"
@@ -357,22 +383,19 @@ class="math inline"><em>O</em>(<em>n</em><em>l</em><em>o</em><em>g</em><em>n</em
           <div class="post-tags">
               <a href="/tags/C/" rel="tag"># C++</a>
               <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"># 数据结构</a>
-              <a href="/tags/ST%E8%A1%A8/" rel="tag"># ST表</a>
-              <a href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag"># 贪心</a>
+              <a href="/tags/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/" rel="tag"># 哈夫曼树</a>
+              <a href="/tags/%E5%A0%86/" rel="tag"># 堆</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2025/10/06/P3509-POI-2010-ZAB-Frog/" rel="prev" title="P3509 [POI 2010] ZAB-Frog">
-                  <i class="fa fa-angle-left"></i> P3509 [POI 2010] ZAB-Frog
+                <a href="/2025/10/11/P1312-NOIP-2011-%E6%8F%90%E9%AB%98%E7%BB%84-Mayan-%E6%B8%B8%E6%88%8F/" rel="prev" title="P1312 [NOIP 2011 提高组] Mayan 游戏">
+                  <i class="fa fa-angle-left"></i> P1312 [NOIP 2011 提高组] Mayan 游戏
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2025/10/07/P1816-%E5%BF%A0%E8%AF%9A/" rel="next" title="P1816 忠诚">
-                  P1816 忠诚 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
